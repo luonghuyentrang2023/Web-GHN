@@ -1,22 +1,20 @@
 version: "3.8"
+
 services:
   admin:
     image: huyentrang14/web-admin:v1.0.0
-    platform: linux/amd64
     container_name: web-admin
     ports:
       - "3000:80"
 
   frontend:
     image: huyentrang14/web-frontend:v1.0.0
-    platform: linux/amd64
     container_name: web-frontend
     ports:
       - "3001:80"
 
   backend:
     image: huyentrang14/web-backend:v1.0.0
-    platform: linux/amd64
     container_name: web-backend
     ports:
       - "5000:5000"
@@ -78,7 +76,6 @@ services:
     container_name: node-exporter
     ports:
       - "9100:9100"
-    # ❗ Lưu ý: MacOS không có /proc, /sys, /rootfs như Linux => Chạy được nhưng không thu thập hết thông tin
     command:
       - '--path.procfs=/host/proc'
       - '--path.sysfs=/host/sys'
